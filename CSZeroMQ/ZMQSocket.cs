@@ -25,7 +25,8 @@ public unsafe class ZMQSocket : IDisposable
     /// </summary>
     /// <param name="uri">The URI to bind to. (see ZeroMQ docs)</param>
     /// <exception cref="ZMQException">If the underlying <code>zmq_bind()</code> fails</exception>
-    public void Bind(string uri)
+    /// <returns>this socket.</returns>
+    public ZMQSocket Bind(string uri)
     {
         byte[] uriArray = Encoding.UTF8.GetBytesNT(uri);
         fixed (byte* pUriArray = uriArray)
@@ -33,6 +34,8 @@ public unsafe class ZMQSocket : IDisposable
             if (zmq_bind(NativeHandle, pUriArray) != 0)
                 throw new ZMQException();
         }
+
+        return this;
     }
 
     /// <summary>
@@ -40,7 +43,8 @@ public unsafe class ZMQSocket : IDisposable
     /// </summary>
     /// <param name="uri">The URI to bind to. (see ZeroMQ docs)</param>
     /// <exception cref="ZMQException">If the underlying <code>zmq_bind()</code> fails</exception>
-    public void Connect(string uri)
+    /// <returns>this socket.</returns>
+    public ZMQSocket Connect(string uri)
     {
         byte[] uriArray = Encoding.UTF8.GetBytesNT(uri);
         fixed (byte* pUriArray = uriArray)
@@ -48,6 +52,8 @@ public unsafe class ZMQSocket : IDisposable
             if (zmq_connect(NativeHandle, pUriArray) != 0)
                 throw new ZMQException();
         }
+        
+        return this;
     }
 
     /// <summary>
@@ -123,7 +129,7 @@ public unsafe class ZMQSocket : IDisposable
     /// <typeparam name="T">The type of the returned option. Should match that specified by the option itself.</typeparam>
     /// <exception cref="ArgumentException">If the provided option does not match the expected type.</exception>
     /// <exception cref="ZMQException"></exception>
-    public void SetOption<T>(SocketOptionInt opt, T value) where T: unmanaged, IBinaryInteger<T>
+    public void SetOption<T>(SocketOptionInt opt, T value) where T: unmanaged
     {
         var expectType = opt.FindAttribute<IntSockOptDescriptorAttribute>()!.Type;
         if (expectType != typeof(T))
@@ -177,7 +183,7 @@ public unsafe class ZMQSocket : IDisposable
     /// <typeparam name="T">The type of the returned option. Should match that specified by the option itself.</typeparam>
     /// <exception cref="ArgumentException">If the provided option does not match the expected type.</exception>
     /// <exception cref="ZMQException">If the underlying <code>zmq_getsockopt()</code> fails.</exception>
-    public void GetOption<T>(SocketOptionInt opt, out T value) where T : unmanaged, IBinaryInteger<T>
+    public void GetOption<T>(SocketOptionInt opt, out T value) where T : unmanaged
     {
         var expectType = opt.FindAttribute<IntSockOptDescriptorAttribute>()!.Type;
         if (expectType != typeof(T))
