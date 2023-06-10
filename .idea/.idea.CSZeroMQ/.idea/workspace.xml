@@ -9,22 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68f62a71-d1d4-4499-8d49-90ae6eef3836" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CSZeroMQ/runtimes/linux-x64/native/libzmq.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSZeroMQ/runtimes/osx-x64/native/libzmq.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSZeroMQ/runtimes/win10-x64/native/libzmq.dll" afterDir="false" />
+    <list default="true" id="68f62a71-d1d4-4499-8d49-90ae6eef3836" name="Changes" comment="actually finish most of the work">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CSZeroMQ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CSZeroMQ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSZeroMQ.sln" beforeDir="false" afterPath="$PROJECT_DIR$/CSZeroMQ.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSZeroMQ/CSZeroMQ.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CSZeroMQ/CSZeroMQ.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSZeroMQ/ZMQSocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CSZeroMQ/ZMQSocket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSZeroMQ/obj/CSZeroMQ.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CSZeroMQ/obj/CSZeroMQ.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSZeroMQ/obj/Debug/net7.0/CSZeroMQ.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CSZeroMQ/obj/Debug/net7.0/CSZeroMQ.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSZeroMQ/obj/Debug/net7.0/CSZeroMQ.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CSZeroMQ/obj/Debug/net7.0/CSZeroMQ.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSZeroMQ/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/CSZeroMQ/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSZeroMQ/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CSZeroMQ/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSZeroMQ/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CSZeroMQ/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSZeroMQ/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/CSZeroMQ/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/native/zmq.h" beforeDir="false" afterPath="$PROJECT_DIR$/Native/Headers/zmq.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +24,17 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/527a2dcd76ec41ecb0820c0926ad20f7a28600/72/d77f5b94/ApplicationException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/527a2dcd76ec41ecb0820c0926ad20f7a28600/83/0479e701/SR.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CSZeroMQ.Tests/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CSZeroMQ/Native/NativeUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CSZeroMQ/ZMQContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CSZeroMQ/ZMQMessage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CSZeroMQ/ZMQSocket.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CSZeroMQ/obj/Debug/net7.0/CSZeroMQ.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jgcodes/Documents/Code/C#/CSZeroMQ/CSZeroMQ/obj/Debug/net7.0/CSZeroMQ.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="Toolset" />
   </component>
@@ -106,14 +98,25 @@
       <workItem from="1685475459651" duration="4728000" />
       <workItem from="1685757436640" duration="4268000" />
       <workItem from="1686239096641" duration="2191000" />
-      <workItem from="1686407655194" duration="3308000" />
+      <workItem from="1686407655194" duration="4077000" />
     </task>
+    <task id="LOCAL-00001" summary="actually finish most of the work">
+      <created>1686411073655</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686411073655</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="actually finish most of the work" />
+    <option name="LAST_COMMIT_MESSAGE" value="actually finish most of the work" />
   </component>
 </project>
