@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "z3Neqn75zSJQL5OK+89ljmROhKGH6vCNbma7Dn2gyrMxSTHHKQQlEl6axiRFYde2T2Iw+shUalHu2n4Ht5A9DQ==",
+  "success": true,
+  "projectFilePath": "/home/jgcodes/Documents/Code/C#/CSZeroMQ/CSZeroMQ/CSZeroMQ.csproj",
+  "expectedPackageFiles": [
+    "/home/jgcodes/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.5/microsoft.aspnetcore.app.ref.7.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
