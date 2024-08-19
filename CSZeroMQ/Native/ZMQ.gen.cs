@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 
+
 namespace CSZeroMQ.Native
 {
     public unsafe partial struct zmq_msg_t
@@ -35,9 +36,15 @@ namespace CSZeroMQ.Native
     public partial struct iovec
     {
     }
-
-    public static unsafe partial class ZMQ
+    
+    public unsafe class ZMQ
     {
+        static ZMQ()
+        {
+            // Load the native library when the ZMQ class is accessed for the first time
+            NativeLibLoader.LoadLibrary();
+        }
+        
         [DllImport("libzmq", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true, SetLastError = true)]
         public static extern int zmq_errno();
 

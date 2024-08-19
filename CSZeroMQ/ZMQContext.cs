@@ -1,4 +1,3 @@
-using CSZeroMQ.Constants;
 using CSZeroMQ.Native;
 using static CSZeroMQ.Native.ZMQ;
 
