@@ -182,6 +182,8 @@ public enum SocketOptionString : int
     SocksProxy = 68,
     [StringSockOptDescriptor(false)]
     ZapDomain = 55,
+    [StringSockOptDescriptor(true)]
+    Subscribe = 6,
 }
 
 public enum SocketOptionBin : int
