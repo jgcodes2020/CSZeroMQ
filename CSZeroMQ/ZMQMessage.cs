@@ -9,7 +9,7 @@ namespace CSZeroMQ;
 /// <summary>
 /// A dynamic buffer used for storing ZeroMQ messages.
 /// </summary>
-public sealed unsafe class ZMQMessage
+public sealed unsafe class ZMQMessage : IDisposable, ICloneable
 {
     public ZMQMessage()
     {
@@ -25,7 +25,7 @@ public sealed unsafe class ZMQMessage
             throw new ArgumentOutOfRangeException(nameof(size), "Size cannot be negative");
         fixed (zmq_msg_t* pMsg = &_msg)
         {
-            zmq_msg_init_size(pMsg, (nuint) size);
+            zmq_msg_init_size(pMsg, (nuint)size);
         }
     }
 
@@ -57,7 +57,7 @@ public sealed unsafe class ZMQMessage
                 {
                     throw new InvalidOperationException("ZeroMQ span size too large!");
                 }
-                return new Span<byte>(zmq_msg_data(pMsg), (int) size);
+                return new Span<byte>(zmq_msg_data(pMsg), (int)size);
             }
         }
     }
@@ -66,7 +66,7 @@ public sealed unsafe class ZMQMessage
     {
         fixed (zmq_msg_t* pMsg = &_msg)
         {
-            int res = zmq_msg_get(pMsg, (int) prop);
+            int res = zmq_msg_get(pMsg, (int)prop);
             if (res == -1)
                 throw new ZMQException();
 
@@ -87,11 +87,48 @@ public sealed unsafe class ZMQMessage
             long count = NativeUtils.StringLengthNT(res);
             if (count > int.MaxValue)
                 throw new InvalidOperationException("ZeroMQ string too long!");
-            return Encoding.UTF8.GetString(res, (int) count);
+            return Encoding.UTF8.GetString(res, (int)count);
         }
     }
+
+    #region IDisposable impl
+
+    private void ReleaseUnmanagedResources()
+    {
+        fixed (zmq_msg_t* pMsg = &_msg)
+        {
+            zmq_msg_close(pMsg);
+        }
+    }
+
+    public void Dispose()
+    {
+        ReleaseUnmanagedResources();
+        GC.SuppressFinalize(this);
+    }
+
+    ~ZMQMessage()
+    {
+        ReleaseUnmanagedResources();
+    }
+
+    #endregion
+
+    #region ICloneable impl
     
-    
+    public object Clone() {
+        ZMQMessage copy = new ZMQMessage();
+        
+        fixed (zmq_msg_t* pDst = &copy._msg, pSrc = &_msg) {
+            int err = zmq_msg_copy(pDst, pSrc);
+            if (err == -1)
+                throw new ZMQException();
+        }
+
+        return copy;
+    }
+
+    #endregion
 
     #region Internal interface
 
